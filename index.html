@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Bogdan Bogdanov</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="root-container">
+        <div class="background-overlay"></div>
+        
+        <!-- Home Button -->
+        <button class="home-button" id="home-button" data-tab="home">
+            <span>Home</span>
+        </button>
+        
+        <div class="content-container">
+            <main class="container">
+                <!-- Initial Page Tab -->
+                <section id="home" class="tab-content active">
+                    <div class="content-wrapper">
+                        <h1 class="main-title" id="home-title"></h1>
+                        <div class="description" id="home-description"></div>
+                        <div class="contact-info" id="home-contact"></div>
+                        <div class="cv-link-wrapper">
+                            <a href="#" id="cv-link" class="cv-link" target="_blank">Download CV</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Script Writing / Showrunning Tab -->
+                <section id="scriptwriting" class="tab-content">
+                    <div class="content-wrapper">
+                        <h1 class="section-title">Script Writing & Showrunning</h1>
+                        <div class="description" id="scriptwriting-description"></div>
+                        
+                        <div class="samples-section">
+                            <h2>Screenwriting Samples</h2>
+                            <div class="samples-list" id="scriptwriting-samples"></div>
+                        </div>
+
+                        <div class="filmography-section">
+                            <h2>Filmography</h2>
+                            <div class="filmography-list" id="filmography-list"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Game Narrative Design Tab -->
+                <section id="gamedesign" class="tab-content">
+                    <div class="content-wrapper">
+                        <h1 class="section-title">Game Narrative Design & Direction</h1>
+                        <div class="description" id="gamedesign-description"></div>
+                        
+                        <div class="samples-section">
+                            <h2>Screenwriting Samples</h2>
+                            <div class="samples-list" id="gamedesign-samples"></div>
+                        </div>
+
+                        <div class="projects-section">
+                            <h2>Projects</h2>
+                            <div class="projects-list" id="projects-list"></div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-navigation">
+            <button class="tab-button" data-tab="scriptwriting">
+                <h3 class="tab-heading" id="scriptwriting-heading"></h3>
+                <p class="tab-subtext" id="scriptwriting-subtext"></p>
+            </button>
+            <button class="tab-button" data-tab="gamedesign">
+                <h3 class="tab-heading" id="gamedesign-heading"></h3>
+                <p class="tab-subtext" id="gamedesign-subtext"></p>
+            </button>
+        </nav>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
