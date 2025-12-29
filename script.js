@@ -145,21 +145,6 @@ function loadGamedesignContent() {
     
     document.getElementById('gamedesign-description').textContent = data.description;
     
-    // Samples
-    const samplesDiv = document.getElementById('gamedesign-samples');
-    samplesDiv.innerHTML = '';
-    
-    if (data.samples && data.samples.length > 0) {
-        data.samples.forEach(sample => {
-            const sampleLink = document.createElement('a');
-            sampleLink.href = sample.url;
-            sampleLink.className = 'sample-link';
-            sampleLink.textContent = sample.title;
-            sampleLink.target = '_blank';
-            samplesDiv.appendChild(sampleLink);
-        });
-    }
-    
     // Projects
     const projectsDiv = document.getElementById('projects-list');
     projectsDiv.innerHTML = '';

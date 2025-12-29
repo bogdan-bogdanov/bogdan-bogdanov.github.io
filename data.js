@@ -72,16 +72,6 @@ const portfolioData = {
         navHeading: "Game Narrative Design & Direction",
         navSubtext: "Interactive storytelling experiences",
         description: "In the realm of interactive storytelling, I design narrative experiences that engage players on multiple levels. As a narrative designer and game director, I create worlds, characters, and storylines that adapt to player choices while maintaining compelling dramatic arcs. My approach combines traditional storytelling with game design principles to deliver memorable interactive experiences.",
-        samples: [
-            {
-                title: "Game Writing Sample 1",
-                url: "https://example.com/game-sample1.pdf"
-            },
-            {
-                title: "Game Writing Sample 2",
-                url: "https://example.com/game-sample2.pdf"
-            }
-        ],
         projects: [
             {
                 title: "Game Project 1",
