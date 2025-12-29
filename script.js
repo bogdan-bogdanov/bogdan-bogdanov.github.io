@@ -68,50 +68,32 @@ function loadHomeContent() {
     document.getElementById('home-title').textContent = data.title;
     document.getElementById('home-description').textContent = data.description;
     
-    // Contact info
+    // Contact info - render as dynamic list of anchors
     const contactDiv = document.getElementById('home-contact');
     contactDiv.innerHTML = '';
     
-    if (data.contact.email) {
-        const emailLink = document.createElement('a');
-        emailLink.href = `mailto:${data.contact.email}`;
-        emailLink.textContent = data.contact.email;
-        contactDiv.appendChild(emailLink);
-        contactDiv.appendChild(document.createElement('br'));
-    }
-    
-    if (data.contact.linkedin) {
-        const linkedinLink = document.createElement('a');
-        linkedinLink.href = data.contact.linkedin;
-        linkedinLink.textContent = 'LinkedIn';
-        linkedinLink.target = '_blank';
-        contactDiv.appendChild(linkedinLink);
-        contactDiv.appendChild(document.createElement('br'));
-    }
-    
-    if (data.contact.twitter) {
-        const twitterLink = document.createElement('a');
-        twitterLink.href = data.contact.twitter;
-        twitterLink.textContent = 'Twitter';
-        twitterLink.target = '_blank';
-        contactDiv.appendChild(twitterLink);
-        contactDiv.appendChild(document.createElement('br'));
-    }
-    
-    if (data.contact.website) {
-        const websiteLink = document.createElement('a');
-        websiteLink.href = data.contact.website;
-        websiteLink.textContent = 'Website';
-        websiteLink.target = '_blank';
-        contactDiv.appendChild(websiteLink);
-    }
-    
-    // CV Link
-    const cvLink = document.getElementById('cv-link');
-    if (data.cvLink) {
-        cvLink.href = data.cvLink;
-    } else {
-        cvLink.style.display = 'none';
+    if (data.contact && Array.isArray(data.contact) && data.contact.length > 0) {
+        const contactList = document.createElement('ul');
+        contactList.className = 'contact-list';
+        
+        data.contact.forEach(contactItem => {
+            if (contactItem.link && contactItem.label) {
+                const listItem = document.createElement('li');
+                const contactLink = document.createElement('a');
+                contactLink.href = contactItem.link;
+                contactLink.textContent = contactItem.label;
+                
+                // Open external links in new tab (not mailto links)
+                if (!contactItem.link.startsWith('mailto:')) {
+                    contactLink.target = '_blank';
+                }
+                
+                listItem.appendChild(contactLink);
+                contactList.appendChild(listItem);
+            }
+        });
+        
+        contactDiv.appendChild(contactList);
     }
 }
 

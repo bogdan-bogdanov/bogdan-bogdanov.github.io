@@ -1,3 +1,18 @@
+/* ============================================
+   Material Design Color Palette
+   ============================================
+   Base Color: #776655 (average from background.png)
+   
+   Primary Palette: Brown tones derived from background
+   - Used for main UI elements, cards, and surfaces
+   
+   Secondary Palette: Teal (complementary to brown)
+   - Used for accents, links, buttons, and highlights
+   
+   The palette follows Material Design 3 guidelines with
+   proper contrast ratios for accessibility.
+   ============================================ */
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -6,17 +21,87 @@
 }
 
 :root {
-    --primary-color: #ffffff;
-    --secondary-color: rgba(255, 255, 255, 0.9);
-    --text-color: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.85);
-    --accent-color: #00BCD4;
-    --accent-hover: #00ACC1;
-    --background-overlay: rgba(0, 0, 0, 0.4);
-    --card-background: rgba(255, 255, 255, 0.1);
-    --card-hover: rgba(255, 255, 255, 0.15);
+    /* Material Design Color Palette - Based on #776655 */
+    
+    /* Primary Color Palette (Brown - from background average) */
+    --md-primary-50: #EFEBE9;
+    --md-primary-100: #D7CCC8;
+    --md-primary-200: #BCAAA4;
+    --md-primary-300: #A1887F;
+    --md-primary-400: #8D6E63;
+    --md-primary-500: #776655; /* Base color from background */
+    --md-primary-600: #6D4C41;
+    --md-primary-700: #5D4037;
+    --md-primary-800: #4E342E;
+    --md-primary-900: #3E2723;
+    
+    /* Secondary/Accent Color Palette (Teal - complementary to brown) */
+    --md-secondary-50: #E0F2F1;
+    --md-secondary-100: #B2DFDB;
+    --md-secondary-200: #80CBC4;
+    --md-secondary-300: #4DB6AC;
+    --md-secondary-400: #26A69A;
+    --md-secondary-500: #009688;
+    --md-secondary-600: #00897B;
+    --md-secondary-700: #00796B;
+    --md-secondary-800: #00695C;
+    --md-secondary-900: #004D40;
+    
+    /* Surface Colors */
+    --md-surface: #FFFFFF;
+    --md-surface-variant: #F5F5F5;
+    --md-background: #FAFAFA;
+    
+    /* Text Colors */
+    --md-on-primary: #FFFFFF;
+    --md-on-secondary: #FFFFFF;
+    --md-on-surface: #212121;
+    --md-on-background: #212121;
+    --md-on-surface-variant: #424242;
+    
+    /* Error Color */
+    --md-error: #B00020;
+    --md-on-error: #FFFFFF;
+    
+    /* Application Colors */
+    --primary-color: var(--md-primary-500);
+    --primary-light: var(--md-primary-300);
+    --primary-dark: var(--md-primary-700);
+    --secondary-color: var(--md-secondary-500);
+    --secondary-light: var(--md-secondary-300);
+    --secondary-dark: var(--md-secondary-700);
+    
+    /* Text Colors */
+    --text-color: var(--md-on-primary);
+    --text-secondary: rgba(255, 255, 255, 0.87);
+    --text-on-surface: var(--md-on-surface);
+    
+    /* Accent Colors */
+    --accent-color: var(--md-secondary-500);
+    --accent-hover: var(--md-secondary-600);
+    --accent-light: var(--md-secondary-300);
+    
+    /* Background & Overlay */
+    --background-overlay: rgba(62, 39, 35, 0.6); /* Using primary-900 with opacity */
+    --card-background: rgba(119, 102, 85, 0.15); /* Using primary-500 with opacity */
+    --card-hover: rgba(119, 102, 85, 0.25);
+    --surface-elevated: rgba(255, 255, 255, 0.95);
+    
+    /* Border & Shadow */
+    --border-color: rgba(255, 255, 255, 0.12);
+    --shadow-color: rgba(62, 39, 35, 0.3);
+    
+    /* Material Design Elevation Shadows */
+    --elevation-0: none;
+    --elevation-1: 0 1px 3px rgba(62, 39, 35, 0.12), 0 1px 2px rgba(62, 39, 35, 0.24);
+    --elevation-2: 0 3px 6px rgba(62, 39, 35, 0.16), 0 3px 6px rgba(62, 39, 35, 0.23);
+    --elevation-3: 0 10px 20px rgba(62, 39, 35, 0.19), 0 6px 6px rgba(62, 39, 35, 0.23);
+    --elevation-4: 0 15px 25px rgba(62, 39, 35, 0.22), 0 10px 10px rgba(62, 39, 35, 0.22);
+    --elevation-5: 0 20px 30px rgba(62, 39, 35, 0.25), 0 15px 12px rgba(62, 39, 35, 0.22);
+    
+    /* UI Constants */
     --border-radius: 12px;
-    --transition: all 0.3s ease;
+    --transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); /* Material Design easing */
     --nav-height: 10rem;
 }
 
@@ -51,6 +136,7 @@ body {
     background: var(--background-overlay);
     z-index: 0;
     pointer-events: none;
+    backdrop-filter: blur(0.5px);
 }
 
 /* Home Button */
@@ -58,8 +144,8 @@ body {
     position: absolute;
     top: 2rem;
     left: 2rem;
-    background: rgba(255, 255, 255, 0.25);
-    border: none;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
     color: var(--text-color);
     padding: 1rem 2rem;
     cursor: pointer;
@@ -69,13 +155,16 @@ body {
     border-radius: var(--border-radius);
     z-index: 1001;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--elevation-2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .home-button:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--card-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--elevation-3);
+    border-color: var(--accent-color);
 }
 
 /* Content Container */
@@ -123,8 +212,8 @@ body {
     border-radius: var(--border-radius);
     padding: 2.5rem;
     margin-bottom: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--elevation-3);
+    border: 1px solid var(--border-color);
 }
 
 /* Typography */
@@ -149,7 +238,7 @@ h2 {
     font-weight: 600;
     margin: 2rem 0 1.5rem;
     color: var(--text-color);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid var(--accent-color);
     padding-bottom: 0.5rem;
 }
 
@@ -165,48 +254,49 @@ h2 {
 .contact-info {
     margin: 2rem 0;
     font-size: 1.1rem;
-    line-height: 2;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-list li {
+    margin: 1rem 0;
+    line-height: 1.8;
+}
+
+.contact-label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: 0.5rem;
 }
 
 .contact-info a {
-    color: var(--accent-color);
+    color: var(--md-secondary-800);
     text-decoration: none;
     transition: var(--transition);
 }
 
 .contact-info a:hover {
-    color: var(--accent-hover);
+    color: var(--md-secondary-900);
     text-decoration: underline;
 }
 
-/* CV Link */
-.cv-link-wrapper {
-    text-align: center;
-    margin: 2rem 0;
-}
 
-.cv-link {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: var(--accent-color);
-    color: var(--primary-color);
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
-}
-
-.cv-link:hover {
-    background: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+/* Scriptwriting Columns Layout */
+.scriptwriting-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+    align-items: start;
 }
 
 /* Samples Section */
 .samples-section {
-    margin: 3rem 0;
+    margin: 0;
 }
 
 .samples-list {
@@ -220,7 +310,8 @@ h2 {
     display: block;
     padding: 1rem 1.5rem;
     background: var(--card-background);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid transparent;
     border-radius: var(--border-radius);
     color: var(--text-color);
     text-decoration: none;
@@ -231,12 +322,13 @@ h2 {
 .sample-link:hover {
     background: var(--card-hover);
     transform: translateX(5px);
-    border-color: var(--accent-color);
+    border-left-color: var(--accent-color);
+    border-color: var(--accent-light);
 }
 
 /* Filmography */
 .filmography-section {
-    margin: 3rem 0;
+    margin: 0;
 }
 
 .filmography-list {
@@ -247,7 +339,7 @@ h2 {
 
 .filmography-item {
     background: var(--card-background);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 1.5rem;
     transition: var(--transition);
@@ -256,7 +348,8 @@ h2 {
 .filmography-item:hover {
     background: var(--card-hover);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--elevation-4);
+    border-color: var(--accent-light);
 }
 
 .filmography-item h3 {
@@ -266,7 +359,7 @@ h2 {
 }
 
 .filmography-item .year {
-    color: var(--accent-color);
+    color: var(--md-secondary-800);
     font-weight: 600;
     margin-bottom: 0.5rem;
     display: block;
@@ -296,7 +389,7 @@ h2 {
 
 .project-item {
     background: var(--card-background);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: 2rem;
     transition: var(--transition);
@@ -305,7 +398,8 @@ h2 {
 .project-item:hover {
     background: var(--card-hover);
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--elevation-4);
+    border-color: var(--accent-light);
 }
 
 .project-item h3 {
@@ -380,8 +474,9 @@ h2 {
 }
 
 .tab-button {
-    background: rgba(255, 255, 255, 0.25);
+    background: var(--card-background);
     border: none;
+    border-top: 3px solid transparent;
     color: var(--text-color);
     padding: 2rem;
     cursor: pointer;
@@ -394,16 +489,20 @@ h2 {
     width: 50%;
     text-align: center;
     border-radius: 0;
+    position: relative;
 }
 
 .tab-button:hover {
     color: var(--text-color);
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--card-hover);
+    border-top-color: var(--accent-light);
 }
 
 .tab-button.active {
-    color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.25);
+    color: var(--md-secondary-900);
+    background: var(--card-background);
+    border-top-color: var(--md-secondary-900);
+    font-weight: 600;
 }
 
 .tab-heading {
@@ -432,6 +531,16 @@ h2 {
 @media (max-width: 768px) {
     .container {
         padding: 1.5rem 1rem;
+    }
+    
+    .scriptwriting-columns {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .samples-section,
+    .filmography-section {
+        margin: 0;
     }
     
     .home-button {
@@ -485,11 +594,6 @@ h2 {
 
     .filmography-item {
         padding: 1.25rem;
-    }
-
-    .cv-link {
-        padding: 0.875rem 2rem;
-        font-size: 1rem;
     }
 }
 

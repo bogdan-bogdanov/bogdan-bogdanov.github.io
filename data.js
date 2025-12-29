@@ -9,13 +9,20 @@ const portfolioData = {
     home: {
         title: "Bogdan Bogdanov",
         description: "Welcome to my portfolio. I'm a creative professional specializing in script writing, showrunning, and game narrative design. With a passion for storytelling across different media, I bring unique narratives to life through film, television, and interactive experiences.",
-        contact: {
-            email: "your.email@example.com",
-            linkedin: "https://linkedin.com/in/yourprofile",
-            twitter: "https://twitter.com/yourhandle",
-            website: "https://yourwebsite.com"
-        },
-        cvLink: "https://your-cv-link.com/cv.pdf" // Update with your actual CV link
+        contact: [
+            {
+                label: "Telegram",
+                link: "https://t.me/Dybree"
+            },
+            {
+                label: "miburoshinsengumi@gmail.com",
+                link: "mailto:miburoshinsengumi@gmail.com"
+            },
+            {
+                label: "LinkedIn",
+                link: "https://www.linkedin.com/in/bogdan-bogdanov-811b82159/"
+            }
+        ]
     },
 
     // ========== SCRIPT WRITING / SHOWRUNNING ==========
