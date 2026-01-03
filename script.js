@@ -1,22 +1,30 @@
-// Tab Navigation
+let currentLang = 'en';
+
+// Tab Navigation + Localization
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
     const homeButton = document.getElementById('home-button');
+    const langToggle = document.getElementById('lang-toggle');
 
-    // Initialize content
-    loadHomeContent();
-    loadScriptwritingContent();
-    loadGamedesignContent();
-    loadNavigationContent();
-    renderContactLinks();
-    
-    // Update home button visibility
-    updateHomeButtonVisibility();
+    // Initialize language
+    const savedLang = localStorage.getItem('portfolioLang');
+    if (savedLang && portfolioData[savedLang]) {
+        currentLang = savedLang;
+    } else {
+        currentLang = detectBrowserLang();
+    }
+    setLanguage(currentLang);
 
     // Home button click handler
     homeButton.addEventListener('click', () => {
         switchToTab('home');
+    });
+
+    // Language toggle
+    langToggle.addEventListener('click', () => {
+        const nextLang = currentLang === 'en' ? 'ru' : 'en';
+        setLanguage(nextLang);
     });
 
     // Tab switching
@@ -60,19 +68,56 @@ document.addEventListener('DOMContentLoaded', function() {
             homeButton.style.display = 'block';
         }
     }
+
+    function setLanguage(lang) {
+        if (!portfolioData[lang]) return;
+        currentLang = lang;
+        localStorage.setItem('portfolioLang', lang);
+
+        const data = portfolioData[currentLang];
+        loadHomeContent(data.home);
+        loadScriptwritingContent(data.scriptwriting);
+        loadGamedesignContent(data.gamedesign);
+        loadNavigationContent(data);
+        renderContactLinks(data.home);
+        updateHomeButtonText(data);
+        updateLangToggle(data);
+        updateHomeButtonVisibility();
+    }
+
+    function updateLangToggle(data) {
+        if (!langToggle || !data?.ui) return;
+        langToggle.textContent = data.ui.langToggle || currentLang.toUpperCase();
+    }
+
+    function updateHomeButtonText(data) {
+        const label = data?.ui?.homeLabel || 'Home';
+        const homeLabel = homeButton.querySelector('span');
+        if (homeLabel) {
+            homeLabel.textContent = label;
+        }
+        homeButton.setAttribute('aria-label', label);
+    }
 });
 
+function detectBrowserLang() {
+    const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    if (lang.startsWith('ru')) {
+        return 'ru';
+    }
+    return 'en';
+}
+
 // Load Home Content
-function loadHomeContent() {
-    const data = portfolioData.home;
-    
-    document.getElementById('home-title').textContent = data.title;
-    document.getElementById('home-description').textContent = data.description;
+function loadHomeContent(homeData) {
+    if (!homeData) return;
+    document.getElementById('home-title').textContent = homeData.title;
+    document.getElementById('home-description').textContent = homeData.description;
 }
 
 // Global Contact Links
-function renderContactLinks() {
-    const contacts = portfolioData.home.contact || [];
+function renderContactLinks(homeData) {
+    const contacts = homeData?.contact || [];
     const contactContainer = document.getElementById('contact-links');
 
     if (!contactContainer) return;
@@ -112,9 +157,8 @@ function renderContactLinks() {
 }
 
 // Load Scriptwriting Content
-function loadScriptwritingContent() {
-    const data = portfolioData.scriptwriting;
-    
+function loadScriptwritingContent(data) {
+    if (!data) return;
     document.getElementById('scriptwriting-description').textContent = data.description;
     
     // Samples
@@ -154,9 +198,8 @@ function loadScriptwritingContent() {
 }
 
 // Load Gamedesign Content
-function loadGamedesignContent() {
-    const data = portfolioData.gamedesign;
-    
+function loadGamedesignContent(data) {
+    if (!data) return;
     document.getElementById('gamedesign-description').textContent = data.description;
     
     // Projects
@@ -204,22 +247,23 @@ function loadGamedesignContent() {
 }
 
 // Load Navigation Content
-function loadNavigationContent() {
+function loadNavigationContent(data) {
+    if (!data) return;
     // Scriptwriting navigation
-    const scriptwritingData = portfolioData.scriptwriting;
-    if (scriptwritingData.navHeading) {
+    const scriptwritingData = data.scriptwriting;
+    if (scriptwritingData?.navHeading) {
         document.getElementById('scriptwriting-heading').textContent = scriptwritingData.navHeading;
     }
-    if (scriptwritingData.navSubtext) {
+    if (scriptwritingData?.navSubtext) {
         document.getElementById('scriptwriting-subtext').textContent = scriptwritingData.navSubtext;
     }
     
     // Gamedesign navigation
-    const gamedesignData = portfolioData.gamedesign;
-    if (gamedesignData.navHeading) {
+    const gamedesignData = data.gamedesign;
+    if (gamedesignData?.navHeading) {
         document.getElementById('gamedesign-heading').textContent = gamedesignData.navHeading;
     }
-    if (gamedesignData.navSubtext) {
+    if (gamedesignData?.navSubtext) {
         document.getElementById('gamedesign-subtext').textContent = gamedesignData.navSubtext;
     }
 }
