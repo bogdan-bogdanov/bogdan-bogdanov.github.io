@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadScriptwritingContent();
     loadGamedesignContent();
     loadNavigationContent();
+    renderContactLinks();
     
     // Update home button visibility
     updateHomeButtonVisibility();
@@ -67,34 +68,47 @@ function loadHomeContent() {
     
     document.getElementById('home-title').textContent = data.title;
     document.getElementById('home-description').textContent = data.description;
-    
-    // Contact info - render as dynamic list of anchors
-    const contactDiv = document.getElementById('home-contact');
-    contactDiv.innerHTML = '';
-    
-    if (data.contact && Array.isArray(data.contact) && data.contact.length > 0) {
-        const contactList = document.createElement('ul');
-        contactList.className = 'contact-list';
+}
+
+// Global Contact Links
+function renderContactLinks() {
+    const contacts = portfolioData.home.contact || [];
+    const contactContainer = document.getElementById('contact-links');
+
+    if (!contactContainer) return;
+
+    contactContainer.innerHTML = '';
+
+    const iconMap = {
+        telegram: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg',
+        email: 'email.svg',
+        linkedin: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg'
+    };
+
+    contacts.forEach(contactItem => {
+        if (!contactItem.link) return;
+
+        const typeKey = (contactItem.type || contactItem.label || '').toLowerCase();
+        const iconSrc = iconMap[typeKey] || iconMap.email;
         
-        data.contact.forEach(contactItem => {
-            if (contactItem.link && contactItem.label) {
-                const listItem = document.createElement('li');
-                const contactLink = document.createElement('a');
-                contactLink.href = contactItem.link;
-                contactLink.textContent = contactItem.label;
-                
-                // Open external links in new tab (not mailto links)
-                if (!contactItem.link.startsWith('mailto:')) {
-                    contactLink.target = '_blank';
-                }
-                
-                listItem.appendChild(contactLink);
-                contactList.appendChild(listItem);
-            }
-        });
-        
-        contactDiv.appendChild(contactList);
-    }
+        const contactLink = document.createElement('a');
+        contactLink.href = contactItem.link;
+        contactLink.className = 'contact-link';
+        contactLink.setAttribute('aria-label', contactItem.label || contactItem.type || 'Contact');
+        contactLink.dataset.type = typeKey || 'contact';
+
+        if (!contactItem.link.startsWith('mailto:')) {
+            contactLink.target = '_blank';
+            contactLink.rel = 'noopener noreferrer';
+        }
+
+        const icon = document.createElement('img');
+        icon.src = iconSrc;
+        icon.alt = contactItem.label || contactItem.type || 'Contact link';
+
+        contactLink.appendChild(icon);
+        contactContainer.appendChild(contactLink);
+    });
 }
 
 // Load Scriptwriting Content

@@ -12,15 +12,18 @@ const portfolioData = {
         contact: [
             {
                 label: "Telegram",
-                link: "https://t.me/Dybree"
+                link: "https://t.me/Dybree",
+                type: "telegram"
             },
             {
-                label: "miburoshinsengumi@gmail.com",
-                link: "mailto:miburoshinsengumi@gmail.com"
+                label: "Email",
+                link: "mailto:miburoshinsengumi@gmail.com",
+                type: "email"
             },
             {
                 label: "LinkedIn",
-                link: "https://www.linkedin.com/in/bogdan-bogdanov-811b82159/"
+                link: "https://www.linkedin.com/in/bogdan-bogdanov-811b82159/",
+                type: "linkedin"
             }
         ]
     },
