@@ -8,7 +8,7 @@ const portfolioData = {
     // ========== HOME PAGE ==========
     home: {
         title: "Bogdan Bogdanov",
-        description: "Welcome to my portfolio. I'm a creative professional specializing in script writing, showrunning, and game narrative design. With a passion for storytelling across different media, I bring unique narratives to life through film, television, and interactive experiences.",
+        description: "Scriptwriter. Showrunner. Narrative Designer. Game Director.\nI teach writing, design, and critical thinking.",
         contact: [
             {
                 label: "Telegram",
