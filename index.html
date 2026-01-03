@@ -52,6 +52,14 @@
                     </div>
                 </section>
 
+                <!-- Script Writing / Showrunning Services -->
+                <section id="scriptwriting-services" class="tab-content">
+                    <div class="content-wrapper">
+                        <h1 class="section-title" id="scriptwriting-services-title"></h1>
+                        <div class="services-list" id="scriptwriting-services-list"></div>
+                    </div>
+                </section>
+
                 <!-- Game Narrative Design Tab -->
                 <section id="gamedesign" class="tab-content">
                     <div class="content-wrapper">
@@ -64,19 +72,35 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- Game Narrative Design Services -->
+                <section id="gamedesign-services" class="tab-content">
+                    <div class="content-wrapper">
+                        <h1 class="section-title" id="gamedesign-services-title"></h1>
+                        <div class="services-list" id="gamedesign-services-list"></div>
+                    </div>
+                </section>
             </main>
         </div>
 
         <!-- Tab Navigation -->
         <nav class="tab-navigation">
-            <button class="tab-button" data-tab="scriptwriting">
-                <h3 class="tab-heading" id="scriptwriting-heading"></h3>
+            <div class="nav-group">
+                <div class="nav-group-title" id="scriptwriting-heading"></div>
                 <p class="tab-subtext" id="scriptwriting-subtext"></p>
-            </button>
-            <button class="tab-button" data-tab="gamedesign">
-                <h3 class="tab-heading" id="gamedesign-heading"></h3>
+                <div class="nav-group-actions">
+                    <button class="tab-button" data-tab="scriptwriting" data-type="portfolio"></button>
+                    <button class="tab-button" data-tab="scriptwriting-services" data-type="services"></button>
+                </div>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-title" id="gamedesign-heading"></div>
                 <p class="tab-subtext" id="gamedesign-subtext"></p>
-            </button>
+                <div class="nav-group-actions">
+                    <button class="tab-button" data-tab="gamedesign" data-type="portfolio"></button>
+                    <button class="tab-button" data-tab="gamedesign-services" data-type="services"></button>
+                </div>
+            </div>
         </nav>
     </div>
 

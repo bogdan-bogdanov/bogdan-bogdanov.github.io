@@ -467,6 +467,51 @@ h2 {
     color: var(--text-secondary);
 }
 
+.services-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.service-item {
+    background: var(--panel-strong);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--elevation-2);
+    transition: var(--transition);
+}
+
+.service-item:hover {
+    background: var(--panel-hover);
+    border-color: var(--accent-light);
+    transform: translateY(-2px);
+}
+
+.service-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.service-item h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.service-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.service-description {
+    margin: 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
 /* Media Gallery */
 .media-gallery {
     display: grid;
@@ -517,8 +562,10 @@ h2 {
     z-index: 10;
     background: transparent;
     display: flex;
-    justify-content: center;
-    padding: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 0 0 6rem;
     min-height: var(--nav-height);
     width: 100%;
     flex-shrink: 0;
@@ -527,60 +574,72 @@ h2 {
     font-family: 'Vollkorn', serif;
 }
 
-.tab-button {
+.nav-group {
     background: var(--panel);
     border: 1px solid var(--border-color);
-    border-top: 3px solid transparent;
-    color: var(--text-color);
-    font-family: 'Vollkorn', serif;
-    padding: 2rem;
-    cursor: pointer;
-    transition: var(--transition);
+    border-radius: 0;
+    padding: 1.5rem 1.75rem 3rem;
+    box-shadow: var(--elevation-2);
+    flex: 1;
+    min-width: 320px;
     display: flex;
     flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-group-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-group-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    width: 100%;
+    margin-bottom: 1.25rem;
+}
+
+.tab-button {
+    background: var(--panel-strong);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-family: 'Vollkorn', serif;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    width: 50%;
+    gap: 0.5rem;
+    width: 100%;
     text-align: center;
-    border-radius: 0;
+    border-radius: var(--border-radius);
     position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 1.15rem;
+    font-weight: 700;
 }
 
 .tab-button:hover {
     color: var(--text-color);
     background: var(--panel-hover);
-    border-top-color: var(--accent-light);
+    border-color: var(--accent-light);
 }
 
 .tab-button.active {
     color: var(--text-color);
-    background: var(--panel-strong);
-    border-top-color: var(--text-color);
+    background: var(--panel-hover);
+    border-color: var(--text-color);
     font-weight: 700;
     box-shadow: var(--elevation-2);
 }
 
-.tab-heading {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0;
-    color: inherit;
-    text-align: center;
-}
-
 .tab-subtext {
-    font-size: 1rem;
-    font-weight: 400;
-    margin: 0;
-    color: inherit;
-    opacity: 0.95;
-    text-align: center;
-    transition: var(--transition);
-}
-
-.tab-button:hover .tab-subtext {
-    opacity: 1;
+    display: none;
 }
 
 /* Responsive Design */
@@ -655,17 +714,17 @@ h2 {
         text-align: left;
     }
 
-    .tab-button {
-        padding: 1.5rem 1rem;
-        width: 50%;
+    .tab-navigation {
+        flex-direction: column;
+        padding: 1rem 0;
     }
 
-    .tab-heading {
-        font-size: 1.2rem;
+    .nav-group {
+        width: 100%;
     }
 
-    .tab-subtext {
-        font-size: 0.9rem;
+    .nav-group-actions {
+        grid-template-columns: 1fr 1fr;
     }
 
     .media-gallery {
@@ -700,7 +759,7 @@ h2 {
     }
 
     .tab-subtext {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     
     .top-left-controls {

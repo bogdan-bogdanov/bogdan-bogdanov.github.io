@@ -1,233 +1,147 @@
 // ============================================
-// PORTFOLIO DATA - EASY UPDATE SECTION
+// PORTFOLIO DATA WITH LOCALIZATION
 // ============================================
-// Update the content below to modify your portfolio
-// All content is centralized here for easy management
 
 const portfolioData = {
     en: {
         ui: {
             homeLabel: "Home",
-            langToggle: "Русский"
+            langToggle: "Русский",
+            navPortfolio: "Portfolio",
+            navServices: "Services"
         },
         home: {
             title: "Bogdan Bogdanov",
             description: "Scriptwriter. Showrunner. Narrative Designer. Game Director.\nI teach writing, design, and critical thinking.",
             contact: [
-                {
-                    label: "Telegram",
-                    link: "https://t.me/Dybree",
-                    type: "telegram"
-                },
-                {
-                    label: "Email",
-                    link: "mailto:miburoshinsengumi@gmail.com",
-                    type: "email"
-                },
-                {
-                    label: "LinkedIn",
-                    link: "https://www.linkedin.com/in/bogdan-bogdanov-811b82159/",
-                    type: "linkedin"
-                }
+                { label: "Telegram", link: "https://t.me/Dybree", type: "telegram" },
+                { label: "Email", link: "mailto:miburoshinsengumi@gmail.com", type: "email" },
+                { label: "LinkedIn", link: "https://www.linkedin.com/in/bogdan-bogdanov-811b82159/", type: "linkedin" }
             ]
         },
         scriptwriting: {
             navHeading: "Script Writing & Showrunning",
             navSubtext: "Film and television narratives",
+            navPortfolio: "Portfolio",
+            navServices: "Services",
             description: "As a scriptwriter and showrunner, I craft compelling narratives that resonate with audiences. My work spans various genres and formats, bringing fresh perspectives to storytelling. I collaborate closely with directors, producers, and creative teams to develop projects from concept to screen.",
             samples: [
-                {
-                    title: "Sample Script 1",
-                    url: "https://example.com/sample1.pdf"
-                },
-                {
-                    title: "Sample Script 2",
-                    url: "https://example.com/sample2.pdf"
-                },
-                {
-                    title: "Sample Script 3",
-                    url: "https://example.com/sample3.pdf"
-                }
+                { title: "Sample Script 1", url: "https://example.com/sample1.pdf" },
+                { title: "Sample Script 2", url: "https://example.com/sample2.pdf" },
+                { title: "Sample Script 3", url: "https://example.com/sample3.pdf" }
             ],
             filmography: [
-                {
-                    title: "Project Title 1",
-                    year: "2024",
-                    role: "Showrunner / Head Writer",
-                    description: "A brief description of the project, its genre, and your contribution. This is where you can highlight key achievements or notable aspects of the work."
-                },
-                {
-                    title: "Project Title 2",
-                    year: "2023",
-                    role: "Writer / Co-Creator",
-                    description: "Another project description. Include relevant details about the scope, audience, or any awards/recognition received."
-                },
-                {
-                    title: "Project Title 3",
-                    year: "2022",
-                    role: "Script Writer",
-                    description: "Describe your role and the project's significance. Mention any collaborations or unique challenges you overcame."
-                }
-                // Add more filmography entries as needed
+                { title: "Project Title 1", year: "2024", role: "Showrunner / Head Writer", description: "A brief description of the project, its genre, and your contribution. This is where you can highlight key achievements or notable aspects of the work." },
+                { title: "Project Title 2", year: "2023", role: "Writer / Co-Creator", description: "Another project description. Include relevant details about the scope, audience, or any awards/recognition received." },
+                { title: "Project Title 3", year: "2022", role: "Script Writer", description: "Describe your role and the project's significance. Mention any collaborations or unique challenges you overcame." }
+            ],
+            services: [
+                { title: "Feature Script Doctoring", description: "Deep structural and character pass on feature-length scripts with written notes and margin comments.", price: "$900" },
+                { title: "Pilot Rewrite", description: "One-hour pilot rewrite with beat-by-beat story map and polish on dialogue.", price: "$1200" },
+                { title: "Show Bible Creation", description: "Build or refine a series bible: world, characters, arc outlines, tone, and pitch-ready summary.", price: "$1500" }
             ]
         },
         gamedesign: {
             navHeading: "Game Narrative Design & Direction",
             navSubtext: "Interactive storytelling experiences",
+            navPortfolio: "Portfolio",
+            navServices: "Services",
             description: "In the realm of interactive storytelling, I design narrative experiences that engage players on multiple levels. As a narrative designer and game director, I create worlds, characters, and storylines that adapt to player choices while maintaining compelling dramatic arcs. My approach combines traditional storytelling with game design principles to deliver memorable interactive experiences.",
             projects: [
                 {
                     title: "Game Project 1",
                     description: "A detailed description of your game project. Explain the narrative design approach, the story, characters, and how player choices affect the narrative. Mention the genre, platform, and any notable features.",
                     media: [
-                        {
-                            type: "video",
-                            url: "https://example.com/video1.mp4",
-                            thumbnail: "https://example.com/thumb1.jpg"
-                        },
-                        {
-                            type: "image",
-                            url: "https://example.com/screenshot1.jpg"
-                        },
-                        {
-                            type: "image",
-                            url: "https://example.com/screenshot2.jpg"
-                        }
+                        { type: "video", url: "https://example.com/video1.mp4", thumbnail: "https://example.com/thumb1.jpg" },
+                        { type: "image", url: "https://example.com/screenshot1.jpg" },
+                        { type: "image", url: "https://example.com/screenshot2.jpg" }
                     ]
                 },
                 {
                     title: "Game Project 2",
                     description: "Another game project description. Highlight your role as narrative designer or game director, the challenges you faced, and the creative solutions you implemented. Discuss the narrative structure and how it enhances gameplay.",
                     media: [
-                        {
-                            type: "image",
-                            url: "https://example.com/screenshot3.jpg"
-                        },
-                        {
-                            type: "video",
-                            url: "https://example.com/video2.mp4",
-                            thumbnail: "https://example.com/thumb2.jpg"
-                        },
-                        {
-                            type: "image",
-                            url: "https://example.com/screenshot4.jpg"
-                        }
+                        { type: "image", url: "https://example.com/screenshot3.jpg" },
+                        { type: "video", url: "https://example.com/video2.mp4", thumbnail: "https://example.com/thumb2.jpg" },
+                        { type: "image", url: "https://example.com/screenshot4.jpg" }
                     ]
                 }
-                // Add more projects as needed
+            ],
+            services: [
+                { title: "Narrative Audit", description: "Evaluate story structure, quest flow, VO needs, and lore consistency with actionable fixes.", price: "$800" },
+                { title: "Questline Design", description: "Design a multi-quest storyline with beats, objectives, and branching logic for implementation.", price: "$1100" },
+                { title: "World & Lore Pack", description: "Create a concise lore pack: factions, timeline, key NPCs, themes, and VO reference tone.", price: "$950" }
             ]
         }
     },
     ru: {
         ui: {
             homeLabel: "Домой",
-            langToggle: "English"
+            langToggle: "English",
+            navPortfolio: "Портфолио",
+            navServices: "Услуги"
         },
         home: {
             title: "Богдан Богданов",
             description: "Сценарист. Шоураннер. Нарративный дизайнер. Креативный директор.\nПреподаю сценарное мастерство, дизайн и критическое мышление.",
             contact: [
-                {
-                    label: "Telegram",
-                    link: "https://t.me/Dybree",
-                    type: "telegram"
-                },
-                {
-                    label: "Email",
-                    link: "mailto:miburoshinsengumi@gmail.com",
-                    type: "email"
-                },
-                {
-                    label: "LinkedIn",
-                    link: "https://www.linkedin.com/in/bogdan-bogdanov-811b82159/",
-                    type: "linkedin"
-                }
+                { label: "Telegram", link: "https://t.me/Dybree", type: "telegram" },
+                { label: "Email", link: "mailto:miburoshinsengumi@gmail.com", type: "email" },
+                { label: "LinkedIn", link: "https://www.linkedin.com/in/bogdan-bogdanov-811b82159/", type: "linkedin" }
             ]
         },
         scriptwriting: {
             navHeading: "Сценарное мастерство и шоураннинг",
             navSubtext: "Кино и сериальные истории",
+            navPortfolio: "Портфолио",
+            navServices: "Услуги",
             description: "Как сценарист и шоураннер, я создаю истории, которые запоминаются аудитории. Работаю в разных жанрах и форматах, развиваю проекты от концепции до экрана вместе с командами режиссеров и продюсеров.",
             samples: [
-                {
-                    title: "Пример сценария 1",
-                    url: "https://example.com/sample1.pdf"
-                },
-                {
-                    title: "Пример сценария 2",
-                    url: "https://example.com/sample2.pdf"
-                },
-                {
-                    title: "Пример сценария 3",
-                    url: "https://example.com/sample3.pdf"
-                }
+                { title: "Пример сценария 1", url: "https://example.com/sample1.pdf" },
+                { title: "Пример сценария 2", url: "https://example.com/sample2.pdf" },
+                { title: "Пример сценария 3", url: "https://example.com/sample3.pdf" }
             ],
             filmography: [
-                {
-                    title: "Проект 1",
-                    year: "2024",
-                    role: "Шораннер / главный автор",
-                    description: "Краткое описание проекта, его жанра и моего вклада. Здесь можно отметить основные достижения."
-                },
-                {
-                    title: "Проект 2",
-                    year: "2023",
-                    role: "Автор / соавтор",
-                    description: "Описание проекта, аудитории и ключевых особенностей. Можно добавить награды или фестивали."
-                },
-                {
-                    title: "Проект 3",
-                    year: "2022",
-                    role: "Сценарист",
-                    description: "Роль и значимость проекта. Укажите коллаборации или творческие задачи, которые удалось решить."
-                }
-                // Add more filmography entries as needed
+                { title: "Проект 1", year: "2024", role: "Шоураннер / главный автор", description: "Краткое описание проекта, его жанра и моего вклада. Здесь можно отметить основные достижения." },
+                { title: "Проект 2", year: "2023", role: "Автор / соавтор", description: "Описание проекта, аудитории и ключевых особенностей. Можно добавить награды или фестивали." },
+                { title: "Проект 3", year: "2022", role: "Сценарист", description: "Роль и значимость проекта. Укажите коллаборации или творческие задачи, которые удалось решить." }
+            ],
+            services: [
+                { title: "Скрипт-докторинг полнометражного сценария", description: "Глубокая правка структуры и персонажей с письменными комментариями и пометками в тексте.", price: "$900" },
+                { title: "Рерайт пилота", description: "Переписываю пилотный эпизод (60 мин) с картой истории по битам и полировкой диалогов.", price: "$1200" },
+                { title: "Создание сериального библа", description: "Разработка или апдейт сериального библа: мир, герои, арки, тон и питч-резюме.", price: "$1500" }
             ]
         },
         gamedesign: {
             navHeading: "Нарративный дизайн и гейм-дирекшн",
             navSubtext: "Интерактивные истории",
+            navPortfolio: "Портфолио",
+            navServices: "Услуги",
             description: "Создаю игровые миры, персонажей и сюжеты, которые реагируют на выбор игрока и остаются драматически цельными. Соединяю драматургию и геймдизайн, чтобы дать игроку запоминающийся опыт.",
             projects: [
                 {
                     title: "Игровой проект 1",
                     description: "Подробное описание игры: подход к нарративу, сюжет, персонажи и влияние выбора игрока. Укажите жанр, платформу и ключевые фичи.",
                     media: [
-                        {
-                            type: "video",
-                            url: "https://example.com/video1.mp4",
-                            thumbnail: "https://example.com/thumb1.jpg"
-                        },
-                        {
-                            type: "image",
-                            url: "https://example.com/screenshot1.jpg"
-                        },
-                        {
-                            type: "image",
-                            url: "https://example.com/screenshot2.jpg"
-                        }
+                        { type: "video", url: "https://example.com/video1.mp4", thumbnail: "https://example.com/thumb1.jpg" },
+                        { type: "image", url: "https://example.com/screenshot1.jpg" },
+                        { type: "image", url: "https://example.com/screenshot2.jpg" }
                     ]
                 },
                 {
                     title: "Игровой проект 2",
                     description: "Описание проекта: моя роль как нарративного дизайнера или геймдиректора, вызовы и решения, структура сюжета и её влияние на геймплей.",
                     media: [
-                        {
-                            type: "image",
-                            url: "https://example.com/screenshot3.jpg"
-                        },
-                        {
-                            type: "video",
-                            url: "https://example.com/video2.mp4",
-                            thumbnail: "https://example.com/thumb2.jpg"
-                        },
-                        {
-                            type: "image",
-                            url: "https://example.com/screenshot4.jpg"
-                        }
+                        { type: "image", url: "https://example.com/screenshot3.jpg" },
+                        { type: "video", url: "https://example.com/video2.mp4", thumbnail: "https://example.com/thumb2.jpg" },
+                        { type: "image", url: "https://example.com/screenshot4.jpg" }
                     ]
                 }
-                // Add more projects as needed
+            ],
+            services: [
+                { title: "Нарративный аудит", description: "Оценка структуры сюжета, квестового потока, VO-потребностей и лора с конкретными правками.", price: "$800" },
+                { title: "Дизайн сюжетной линейки", description: "Разработка серии квестов с битами, целями и ветвлениями для внедрения в игру.", price: "$1100" },
+                { title: "Пакет лора и мира", description: "Концентрированный лор-пакет: фракции, хронология, ключевые NPC, темы и референсы для VO.", price: "$950" }
             ]
         }
     }
@@ -236,4 +150,3 @@ const portfolioData = {
 // ============================================
 // END OF DATA SECTION
 // ============================================
-

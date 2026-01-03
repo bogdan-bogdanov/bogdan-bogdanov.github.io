@@ -78,6 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
         loadHomeContent(data.home);
         loadScriptwritingContent(data.scriptwriting);
         loadGamedesignContent(data.gamedesign);
+        loadServicesContent('scriptwriting', data.scriptwriting);
+        loadServicesContent('gamedesign', data.gamedesign);
         loadNavigationContent(data);
         renderContactLinks(data.home);
         updateHomeButtonText(data);
@@ -246,6 +248,31 @@ function loadGamedesignContent(data) {
     }
 }
 
+function loadServicesContent(key, data) {
+    if (!data) return;
+    const titleEl = document.getElementById(`${key}-services-title`);
+    const listEl = document.getElementById(`${key}-services-list`);
+    if (!titleEl || !listEl) return;
+
+    titleEl.textContent = data.navServices || 'Services';
+    listEl.innerHTML = '';
+
+    if (Array.isArray(data.services)) {
+        data.services.forEach(service => {
+            const item = document.createElement('div');
+            item.className = 'service-item';
+            item.innerHTML = `
+                <div class="service-top">
+                    <h3>${service.title}</h3>
+                    <span class="service-price">${service.price}</span>
+                </div>
+                <p class="service-description">${service.description}</p>
+            `;
+            listEl.appendChild(item);
+        });
+    }
+}
+
 // Load Navigation Content
 function loadNavigationContent(data) {
     if (!data) return;
@@ -257,6 +284,11 @@ function loadNavigationContent(data) {
     if (scriptwritingData?.navSubtext) {
         document.getElementById('scriptwriting-subtext').textContent = scriptwritingData.navSubtext;
     }
+    const scriptButtons = document.querySelectorAll('[data-tab="scriptwriting"], [data-tab="scriptwriting-services"]');
+    scriptButtons.forEach(btn => {
+        const type = btn.getAttribute('data-type');
+        btn.textContent = type === 'services' ? (scriptwritingData.navServices || 'Services') : (scriptwritingData.navPortfolio || 'Portfolio');
+    });
     
     // Gamedesign navigation
     const gamedesignData = data.gamedesign;
@@ -266,5 +298,10 @@ function loadNavigationContent(data) {
     if (gamedesignData?.navSubtext) {
         document.getElementById('gamedesign-subtext').textContent = gamedesignData.navSubtext;
     }
+    const gameButtons = document.querySelectorAll('[data-tab="gamedesign"], [data-tab="gamedesign-services"]');
+    gameButtons.forEach(btn => {
+        const type = btn.getAttribute('data-type');
+        btn.textContent = type === 'services' ? (gamedesignData.navServices || 'Services') : (gamedesignData.navPortfolio || 'Portfolio');
+    });
 }
 
